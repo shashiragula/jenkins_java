@@ -13,5 +13,13 @@ pipeline {
         echo 'Awesome Student!'
       }
     }
+    stage("Test on Debian") {
+      agent {
+        docker 'openjdk:8u121-jre'
+      }
+      steps {
+       sh "java -version"
+      }
+    }
   }
 }
